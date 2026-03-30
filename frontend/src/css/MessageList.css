@@ -1,0 +1,38 @@
+.message-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.date-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px 0;
+}
+
+.date-divider span {
+    background: #e5e5e5;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.message-list.dark .date-divider span {
+    background: #333;
+    color: #999;
+}
+
+.empty-chat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #999;
+    font-size: 16px;
+    text-align: center;
+    padding: 20px;
+}

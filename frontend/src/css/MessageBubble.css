@@ -1,0 +1,89 @@
+.message-bubble {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    max-width: 70%;
+    word-break: break-word;
+}
+
+.message-bubble.sent {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.message-bubble.received {
+    align-self: flex-start;
+}
+
+.message-content {
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: #e5e5e5;
+    color: #000;
+    line-height: 1.4;
+}
+
+.message-bubble.sent .message-content {
+    background: #007bff;
+    color: white;
+    border-radius: 12px 4px 12px 12px;
+}
+
+.message-bubble.received .message-content {
+    background: #e5e5e5;
+    color: #000;
+    border-radius: 4px 12px 12px 12px;
+}
+
+.message-bubble.dark.received .message-content {
+    background: #333;
+    color: #fff;
+}
+
+.message-bubble.dark.sent .message-content {
+    background: #0066cc;
+    color: #fff;
+}
+
+/* Message Content Styles */
+.message-text {
+    margin: 0;
+    font-size: 15px;
+    white-space: pre-wrap;
+}
+
+.message-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    max-height: 300px;
+}
+
+.message-time {
+    font-size: 12px;
+    color: #999;
+    white-space: nowrap;
+    opacity: 0.7;
+}
+
+.message-bubble.dark .message-time {
+    color: #666;
+}
+
+/* Hover Effects */
+.message-bubble:hover {
+    transform: translateY(-2px);
+}
+
+.message-bubble:hover .message-time {
+    opacity: 1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+    .message-bubble {
+        max-width: 85%;
+    }
+}

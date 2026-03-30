@@ -1,9 +1,7 @@
-import { AccountCircle, Brightness4, Brightness7 } from '@mui/icons-material';
-import { Box, Button, Grid, IconButton, Tooltip, Typography } from '@mui/material';
 import React, { useContext } from 'react';
 import { Navigate, Route, BrowserRouter as Router, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Allusers from './components/Allusers';
-import Chat from './components/Chat';
+import ChatLayout from './components/ChatLayout';
 import Login from './components/Login';
 import Register from './components/Register';
 import UserProfile from './components/UserProfile';
@@ -34,32 +32,48 @@ const Header = () => {
   }
 
   return (
-    <Box className="p-4" sx={{ backgroundColor: '#333', color: '#fff', border: '2px solid #444' }}>
-      <Grid container justifyContent="space-between" alignItems="center">
-        <Grid item>
-          <Typography variant="h5" component="h2" sx={{ cursor: 'pointer' }} onClick={handleAppClick}>
-            Chat App
-          </Typography>
-        </Grid>
-        <Grid item>
-          <Box>
-            <Tooltip title="Toggle light/dark theme">
-              <IconButton onClick={colorMode.toggleColorMode} color="inherit">
-                {colorMode.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="Profile">
-              <IconButton color="inherit" onClick={handleProfileClick}>
-                <AccountCircle />
-              </IconButton>
-            </Tooltip>
-            <Button color="inherit" onClick={handleLogout}>
-              Logout
-            </Button>
-          </Box>
-        </Grid>
-      </Grid>
-    </Box>
+    <header className={`flex items-center justify-between px-6 py-4 border-b ${
+      colorMode.mode === 'dark' 
+        ? 'bg-slate-900 border-slate-800 text-white' 
+        : 'bg-white border-slate-200 text-slate-900'
+    }`}>
+      <h1 
+        className="text-2xl font-bold cursor-pointer hover:opacity-80 transition-opacity"
+        onClick={handleAppClick}
+      >
+        Chat App
+      </h1>
+      <div className="flex items-center gap-4">
+        <button
+          onClick={colorMode.toggleColorMode}
+          className={`p-2 rounded-lg transition-colors ${
+            colorMode.mode === 'dark'
+              ? 'hover:bg-slate-800'
+              : 'hover:bg-slate-100'
+          }`}
+          title="Toggle light/dark theme"
+        >
+          {colorMode.mode === 'dark' ? '☀️' : '🌙'}
+        </button>
+        <button
+          onClick={handleProfileClick}
+          className={`p-2 rounded-lg transition-colors ${
+            colorMode.mode === 'dark'
+              ? 'hover:bg-slate-800'
+              : 'hover:bg-slate-100'
+          }`}
+          title="Profile"
+        >
+          👤
+        </button>
+        <button
+          onClick={handleLogout}
+          className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium"
+        >
+          Logout
+        </button>
+      </div>
+    </header>
   );
 };
 
@@ -72,7 +86,7 @@ const App = () => {
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/chat" element={<Chat />} />
+          <Route path="/chat" element={<ChatLayout />} />
           <Route path="/allusers" element={<Allusers />} />
           <Route path="/profile" element={<UserProfile />} />
         </Routes>

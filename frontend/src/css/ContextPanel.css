@@ -1,0 +1,225 @@
+.context-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background: white;
+    color: #000;
+    border-radius: 0;
+}
+
+.context-panel.dark {
+    background: #0f0f0f;
+    color: #fff;
+}
+
+/* Context Content */
+.context-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    gap: 12px;
+}
+
+.context-content h3 {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Typing Mode */
+.typing-mode {
+    /* SmartInputArea fills the space */
+}
+
+/* Selection Mode */
+.selection-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.selection-header h3 {
+    margin: 0;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    color: #999;
+    transition: color 0.2s;
+}
+
+.context-panel.dark .close-button {
+    color: #666;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+.context-panel.dark .close-button:hover {
+    color: #fff;
+}
+
+.message-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.context-panel.dark .message-details {
+    background: #1a1a1a;
+}
+
+.detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail-text {
+    margin: 0;
+    line-height: 1.5;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.detail-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    max-height: 200px;
+}
+
+.detail-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid #e5e5e5;
+    padding-top: 8px;
+}
+
+.context-panel.dark .detail-meta {
+    border-top-color: #333;
+}
+
+.detail-time {
+    font-size: 12px;
+    color: #666;
+}
+
+.context-panel.dark .detail-time {
+    color: #999;
+}
+
+.detail-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-button {
+    flex: 1;
+    padding: 8px 12px;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.context-panel.dark .action-button {
+    background: #0f0f0f;
+    border-color: #333;
+    color: #fff;
+}
+
+.action-button:hover {
+    background: #e5e5e5;
+}
+
+.context-panel.dark .action-button:hover {
+    background: #333;
+}
+
+/* Idle Mode */
+.idle-header {
+    margin-bottom: 8px;
+}
+
+.idle-header h3 {
+    margin: 0;
+}
+
+.idle-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+}
+
+.idle-message {
+    margin: 0;
+    color: #999;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.context-panel.dark .idle-message {
+    color: #666;
+}
+
+/* Scrollbar */
+.context-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.context-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.context-content::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 3px;
+}
+
+.context-content::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+.context-panel.dark .context-content::-webkit-scrollbar-thumb {
+    background: #555;
+}
+
+.context-panel.dark .context-content::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .context-panel {
+        border-radius: 16px 16px 0 0;
+        max-height: 80vh;
+    }
+}
+
+@media (max-width: 640px) {
+    .context-content {
+        padding: 12px;
+    }
+
+    .message-details {
+        padding: 8px;
+    }
+}
